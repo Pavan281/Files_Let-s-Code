@@ -2,10 +2,9 @@
 #include<stdio.h>
 #include<errno.h>
 
-/* 
-    to count the total number of characters 
-    inside the source file
-*/
+//to count the total number of characters 
+//inside the source file
+
 long count_characters(FILE *);
 
 int main()
@@ -20,11 +19,7 @@ int main()
         printf("The FILE has been opened...\n");
         fp2 = fopen("File_2.txt", "w");
         cnt = count_characters(fp1);
-
-        /*
-            Make the pointer fp1 to point at the
-            last character of the file
-        */
+//Make the pointer fp1 to point at the last character of the file
         fseek(fp1, -1L, 2);
         printf("Number of characters to be copied %d\n", ftell(fp1));
 
@@ -45,17 +40,14 @@ int main()
     fclose(fp2);
 }
 
-/*
-    Count the total number of characters in the file
-    that *f points to
-*/
+//Count the total number of characters in the file that *f points to
+
 long count_characters(FILE *f)
 {
     fseek(f, -1L, 2);
-    /*
-        returns the position of the 
-        last element of the file
-    */
+    //returns the position of the 
+    //last element of the file
+    
     long last_pos = ftell(f);
     last_pos++;
     return last_pos;
